@@ -13,6 +13,15 @@ FetchContent_MakeAvailable(eigen)
 
 if(DEFINED SKBUILD)
   # ... Fill me in!
+
+  find_package(pybind11)
+
+  file(GLOB OUTPUT src/_core.cpp)
+  pybind11_add_module(HarmonicOscillator ${OUTPUT})
+  #target_link_libraries(HarmonicOscillator PUBLIC EulerIntegrator::EulerIntegrator)
+  
+  project(skbuild_test VERSION 0.1.0)
+
 else()
   add_executable(main src/main.cpp src/integrator.hpp)
   target_include_directories(main PRIVATE src "${eigen_SOURCE_DIR}")
