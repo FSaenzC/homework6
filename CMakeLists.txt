@@ -18,7 +18,7 @@ if(DEFINED SKBUILD)
 
   file(GLOB OUTPUT src/_core.cpp)
   pybind11_add_module(HarmonicOscillator ${OUTPUT})
-  #target_link_libraries(HarmonicOscillator PUBLIC EulerIntegrator::EulerIntegrator)
+  target_link_libraries(HarmonicOscillator PUBLIC EulerIntegrator::EulerIntegrator)
   
   project(skbuild_test VERSION 0.1.0)
 
